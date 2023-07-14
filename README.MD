@@ -111,7 +111,7 @@ PAC条目来判断目标域控是否安装更新补丁。
 
 1. #### 扫描单个目标
    ```text
-   PS C:\> python.exe C:/Users/ateam/Downloads/tools/Python39_1/Scripts/advul/main.py -ts -no-pass -dc-ip 192.168.31.110 -u mayun@jd.local 33679 
+   PS C:\> python.exe advul/main.py -ts -no-pass -dc-ip 192.168.31.110 -u mayun@jd.local 33679 
 
    [2023-07-15 03:05:49] [*] [192.168.31.110] has 33679
    ```
