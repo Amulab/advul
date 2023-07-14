@@ -16,7 +16,7 @@ usage: main.py [-h] [-ts] [-debug] [-dc-ip ip address] [-target-ip ip address]
                [-no-pass] [-all-dc] [-tf target file] [--threads threads]
                {33679,26923,42287}
 
-AD常见漏洞扫描/利用工具
+AD高危漏洞扫描/利用工具
 
 positional arguments:
   {33679,26923,42287}   Action
