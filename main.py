@@ -22,7 +22,7 @@ if __name__ == '__main__':
 
     target.add_argument_group(parser)
 
-    group = parser.add_argument_group("multi target options")
+    group = parser.add_argument_group("multi targets options")
     group.add_argument('-all-dc', action='store_true', help='attack all dcs')
     group.add_argument('-tf', metavar='target file', action='store', help='path to targets file')
     group.add_argument('--threads', metavar='threads', default=10, help='number of worker threads', type=int)
