@@ -105,7 +105,7 @@ PAC条目来判断目标域控是否安装更新补丁。
    ```
 
 ## CVE-2022-33679
-   &emsp;&emsp;向目标域控发起Kerberos预认证, 将加密方式设置未RC4-MD4(-128), 若返回KDC_ERR_ETYPE_NOSUPP(14)说明已安装更新补丁, 若返回KDC_ERR_PREAUTH_REQUIRED(25), 说明存在漏洞。
+   &emsp;&emsp;向目标域控发起Kerberos预认证, 将加密方式设置为RC4-MD4(-128), 若返回KDC_ERR_ETYPE_NOSUPP(14)说明已安装更新补丁, 若返回KDC_ERR_PREAUTH_REQUIRED(25), 说明存在漏洞。
    注意 **由于该漏洞检测时不需要输入凭据, 执行时需指定-no-pass参数**
 ### 使用示例
 
