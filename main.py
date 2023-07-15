@@ -11,7 +11,7 @@ from exploits import ALL_EXPLOITS
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         add_help=False,
-        description="AD常见漏洞扫描/利用工具",
+        description="Active Directory Vulnerability Scanner",
     )
 
     parser.add_argument('module', choices=ALL_EXPLOITS.keys(), help='Action')
