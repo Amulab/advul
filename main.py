@@ -8,6 +8,8 @@ from impacket.examples import logger
 
 from exploits import ALL_EXPLOITS
 
+from exploits import cve_2020_1472 as zerologon
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         add_help=False,
@@ -31,7 +33,10 @@ if __name__ == '__main__':
     group.add_argument('-ntlm-method', choices=['rpc', 'smb'], help='method for ntlm info detection')
 
     group = parser.add_argument_group("ldap connection options")
-    group.add_argument('-ldap-scheme', choices=['ldap', 'ldaps'], default='ldaps', help='method for ntlm info detection')
+    group.add_argument('-ldap-scheme', choices=['ldap', 'ldaps'], default='ldaps',
+                       help='method for ntlm info detection')
+
+    zerologon.add_add_argument_group(parser)
 
     if len(sys.argv) < 2:
         parser.print_help()
