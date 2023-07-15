@@ -30,6 +30,9 @@ if __name__ == '__main__':
     group = parser.add_argument_group("ntlm info options")
     group.add_argument('-ntlm-method', choices=['rpc', 'smb'], help='method for ntlm info detection')
 
+    group = parser.add_argument_group("ldap connection options")
+    group.add_argument('-ldap-scheme', choices=['ldap', 'ldaps'], default='ldaps', help='method for ntlm info detection')
+
     if len(sys.argv) < 2:
         parser.print_help()
         sys.exit(1)
@@ -44,7 +47,7 @@ if __name__ == '__main__':
     t = Target.from_options(options)
 
     act = ALL_EXPLOITS.get(options.module)
-    runner = act(t)
+    runner = act(t, options)
     if any([options.tf, options.all_dc]):
         runner.run_multi(options.tf, options.threads)
     else:
