@@ -26,6 +26,10 @@ if __name__ == '__main__':
     group.add_argument('-all-dc', action='store_true', help='attack all dcs')
     group.add_argument('-tf', metavar='target file', action='store', help='path to targets file')
     group.add_argument('--threads', metavar='threads', default=10, help='number of worker threads', type=int)
+
+    group = parser.add_argument_group("ntlm info options")
+    group.add_argument('-ntlm-method', choices=['rpc', 'smb'], help='method for ntlm info detection')
+
     if len(sys.argv) < 2:
         parser.print_help()
         sys.exit(1)
