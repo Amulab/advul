@@ -65,7 +65,8 @@ def ntlm_info(target_ip, method='rpc'):
                         'ldap': f''}
     target_info = {ntlm.NTLMSSP_AV_DNS_HOSTNAME: '',
                    ntlm.NTLMSSP_AV_DNS_DOMAINNAME: '',
-                   ntlm.NTLMSSP_AV_DNS_TREENAME: ''}
+                   ntlm.NTLMSSP_AV_DNS_TREENAME: '',
+                   ntlm.NTLMSSP_AV_HOSTNAME: ''}
 
     bind_data = base64.b64decode('BQALAxAAAABwACAAAQAAALgQuBAAAAAAAQAAAAAAAQAIg6/hH13JEZGkCAArFKD6AwAAAARdiIrr'
                                  'HMkRn+gIACsQSGACAAAACgIAAAAAAABOVExNU1NQAAEAAAAFAoigAAAAAAAAAAAAAAAAAAAAAA==')
