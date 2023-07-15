@@ -154,19 +154,19 @@ PS C:\> python.exe advul/main.py -u JDCA$@jd.local -hashes 48f925772624af82147e7
 
 ## CVE-2022-33679
    &emsp;&emsp;向目标域控发起Kerberos预认证, 将加密方式设置为RC4-MD4(-128), 若返回KDC_ERR_ETYPE_NOSUPP(14)说明已安装更新补丁, 若返回KDC_ERR_PREAUTH_REQUIRED(25), 说明存在漏洞。
-   注意： **由于该漏洞检测时不需要输入凭据, 执行时需指定-no-pass参数**。
+   
 ### 使用示例
 
 #### 扫描单个目标
    ```text
-   PS C:\> python.exe advul/main.py -ts -no-pass -dc-ip 192.168.31.110 -u mayun@jd.local 33679 
+   PS C:\> python.exe advul/main.py -ts -dc-ip 192.168.31.110 -u mayun@jd.local 33679 
 
    [2023-07-15 03:05:49] [*] [192.168.31.110] has 33679
    ```
 
 #### 批量扫描
    ```text
-   PS C:\> python.exe advul/main.py -ts -tf dcs.txt -no-pass -dc-ip 192.168.31.110 -u mayun@jd.local 33679 
+   PS C:\> python.exe advul/main.py -ts -tf dcs.txt -dc-ip 192.168.31.110 -u mayun@jd.local 33679 
 
    [2023-07-15 03:04:24] [*] [192.168.31.110] has 33679
    [2023-07-15 03:04:24] [*] [192.168.31.111] is not vuln
