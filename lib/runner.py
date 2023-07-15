@@ -25,6 +25,12 @@ class Runner:
         logging.error('not implemented')
         raise NotImplementedError()
 
+    def _run(self, target_ip=None):
+        try:
+            self.run(target_ip)
+        except BaseException as ex:
+            logging.error(f'[{self.__class__.__name__}] {ex}')
+
     def run_multi(self, target_set=None, max_workers=10):
         """
         如果没有指定域控进行攻击那么就利用dns查询所有域控ip，对这些域控进行攻击
@@ -47,7 +53,7 @@ class Runner:
 
         with ThreadPoolExecutor(max_workers=max_workers) as pool:
             logger.debug(f'{len(target_set)} targets to run with max worker {max_workers}')
-            fs = [pool.submit(self.run, target.strip()) for target in target_set]
+            fs = [pool.submit(self._run, target.strip()) for target in target_set]
             wait(fs)
 
     def exploit(self):
