@@ -14,14 +14,16 @@ usage: main.py [-h] [-ts] [-debug] [-dc-ip ip address] [-target-ip ip address]
                [-timeout seconds] [-u username@domain] [-p password]
                [-hashes [LMHASH:]NTHASH] [-k] [-sspi] [-aes hex key]
                [-no-pass] [-all-dc] [-tf target file] [--threads threads]
-               {33679,26923,42287}
+               [-ntlm-method {rpc,smb}] [-ldap-scheme {ldap,ldaps}]
+               {33679,26923,42287,zerologon}
 
 Active Directory Vulnerability Scanner
 
 positional arguments:
-  {33679,26923,42287}   Action
+  {33679,26923,42287,zerologon}
+                        modules
 
-optional arguments:
+options:
   -h, --help            Show this help message and exit
   -ts                   adds timestamp to every logging output
   -debug                Turn DEBUG output ON
@@ -58,11 +60,18 @@ authentication options:
                         bits)
   -no-pass              Don't ask for password (useful for -k and -sspi)
 
-multi target options:
+multi targets options:
   -all-dc               attack all dcs
   -tf target file       path to targets file
   --threads threads     number of worker threads
 
+ntlm info options:
+  -ntlm-method {rpc,smb}
+                        method for ntlm info detection
+
+ldap connection options:
+  -ldap-scheme {ldap,ldaps}
+                        method for ntlm info detection
 ```
 
 ## CVE-2021-42287

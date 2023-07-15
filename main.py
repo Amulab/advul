@@ -14,7 +14,7 @@ if __name__ == '__main__':
         description="Active Directory Vulnerability Scanner",
     )
 
-    parser.add_argument('module', choices=ALL_EXPLOITS.keys(), help='Action')
+    parser.add_argument('module', choices=ALL_EXPLOITS.keys(), help='modules')
     parser.add_argument("-h", "--help", action="help", default=argparse.SUPPRESS,
                         help="Show this help message and exit")
     parser.add_argument('-ts', action='store_true', help='adds timestamp to every logging output')
