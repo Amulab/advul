@@ -43,7 +43,7 @@ if __name__ == '__main__':
         logging.getLogger().setLevel(logging.DEBUG)
     else:
         logging.getLogger().setLevel(logging.INFO)
-
+    options.no_pass = True
     t = Target.from_options(options)
 
     act = ALL_EXPLOITS.get(options.module)
