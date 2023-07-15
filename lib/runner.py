@@ -1,9 +1,10 @@
 import logging
 import sys
 from concurrent.futures import ThreadPoolExecutor, wait
+from impacket.ntlm import NTLMSSP_AV_DNS_DOMAINNAME
 
 from certipy.lib.target import Target
-from .utils import get_all_dcs, target_validator
+from .utils import get_all_dcs, target_validator, ntlm_info
 
 logger = logging.getLogger('base')
 
@@ -30,6 +31,9 @@ class Runner:
         如果指定了域控列表，就对列表内的域控进行攻击
         """
         if target_set is None:
+            # 如果没有指定域名，使用ntlm info获取域名
+            if not self._target.domain:
+                self._target.domain = ntlm_info(self._target.dc_ip)[NTLMSSP_AV_DNS_DOMAINNAME]
             target_set = get_all_dcs(self._target)
         elif isinstance(target_set, str):
             try:
